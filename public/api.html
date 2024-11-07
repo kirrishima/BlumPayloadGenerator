@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      h2 {
+        padding: 10px;
+        color: #4caf50;
+        background-color: #282c34;
+      }
+      .section ul li a {
+        font-size: 1.2em;
+        color: black;
+        text-decoration: none;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>API documentation</h1>
+      <p><a href="index.html" style="color: #4caf50">Back to home page</a></p>
+    </header>
+
+    <div class="content">
+      <div class="section">
+        Content table:
+        <ul>
+          <li><a href="#/api/generate">/api/generate</a></li>
+          <li><a href="#/api/help">/api/help</a></li>
+          <li><a href="#/api/status">/api/status</a></li>
+          <li><a href="#/api/testdata">/api/testdata</a></li>
+          <li><a href="#/api/test">/api/test</a></li>
+        </ul>
+      </div>
+
+      <div class="section" id="/api/generate">
+        <h2>/api/generate</h2>
+        <p>This endpoint requires post method, accepts json paylod with data.</p>
+        <h4>General json template:</h4>
+        <pre>
+{
+    "gameId": String,
+    "challenge": {
+        "id": String,
+        "nonce": Int,
+        "hash": String
+    },
+    "earnedPoints": {
+        "BP": { "amount": Int }
+    },
+    "assetClicks": {
+        "CLOVER": { "clicks": Int },
+        "FREEZE": { "clicks": Int },
+        "BOMB": { "clicks": Int }
+    }
+};</pre
+        >
+        <h4>Drop game claim json:</h4>
+        <pre>
+{
+  "gameId": String,
+  "earnedPoints": {
+      "BP": { "amount": Int }
+  },
+  "assetClicks": {
+      "CLOVER": { "clicks": Int },
+      "FREEZE": { "clicks": Int },
+      "BOMB": { "clicks": Int }
+  }
+};</pre
+        >
+        <h4>Example for drop game:</h4>
+        <pre>
+{
+  "gameId": "ec4e3774-b5a7-4789-a23b-cc02cb655ca6",
+  "earnedPoints": {
+      "BP": { "amount": 219 }
+  },
+  "assetClicks": {
+      "CLOVER": { "clicks": 74 },
+      "FREEZE": { "clicks": 3 },
+      "BOMB": { "clicks": 0 }
+  }
+};</pre
+        >
+      </div>
+
+      <div class="section" id="/api/help">
+        <h2>/api/help</h2>
+        <p>Returns current page</p>
+      </div>
+
+      <div class="section" id="/api/status">
+        <h2>/api/status</h2>
+        <p>
+          Returns just the string "OK" if server can listen on this route. This does not guarantee that payload
+          generation is available and the rest of the server routes are responding properly.
+        </p>
+      </div>
+
+      <div class="section" id="/api/testdata">
+        <h2>/api/testdata</h2>
+        <p>Return the data used for test:</p>
+        <pre>
+{
+  "testData": { ... }
+}
+</pre
+        >
+      </div>
+
+      <div class="section" id="/api/test">
+        <h2>/api/test</h2>
+        <p>Used to test functionality of generation. Uses internal example data and return json:</p>
+        <pre>{ message: String }</pre>
+        <p>Returns "OK" if test succeed</p>
+      </div>
+    </div>
+    <footer id="footer">
+      <p>&copy; 2024 Payload Generation Server by Force</p>
+      <p class="social-links">
+        <a href="https://github.com/kirrishima"
+          ><img
+            src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Github-Dark.svg"
+            alt=""
+        /></a>
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=forcepro250@gmail.com&body=Be%20nice%20and%20introduce%20yourself"
+          ><img
+            src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Gmail-Dark.svg"
+            alt=""
+        /></a>
+        <a href="https://t.me/dzdkiz"><img src="telegram.png" alt="" /></a>
+      </p>
+    </footer>
+  </body>
+</html>

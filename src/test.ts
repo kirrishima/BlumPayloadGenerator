@@ -1,9 +1,6 @@
-import {generateChallenge, generatePayload, loadWasmFileForGenerator} from "./generator";
+import { generateChallenge } from "./generator";
 
-const gameWasmFile = "blum-includes/game_wasm_bg-DYwJl-6R.wasm"
-
-function test_1() {
-
+export function getTestData() {
     const gameId = "ad7cd4cd-29d1-4548-89a3-91301996ef31";
     const challengeHash = "0000467a51e7680d8a3c36d18b240697fb844dd269e21989f24044acddf10228"
     const challengeNonce = 16353
@@ -37,19 +34,5 @@ function test_1() {
         assetClicks: assetClicks
     };
 
-    const payload = generatePayload(wasmData);
-
-    if (payload.length !== 684) {
-        console.log(`Payload length (${payload.length}) not eq, specified - 684`);
-        throw Error("The payload length did not match the specified length.")
-    }
+    return wasmData;
 }
-
-
-async function main() {
-    await loadWasmFileForGenerator(gameWasmFile)
-    test_1()
-    console.log("All test ok!")
-}
-
-main().then()
